@@ -1,1 +1,1 @@
-this is a placeholder for the internal. subdomain of pryzum.net
+this is the source code for the internal. subdomain of pryzum.net

@@ -15,10 +15,16 @@ function rot47(str) {
 
       setTimeout(() => {
         terminal.innerHTML = `
-          <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
-          <h1>Welcome!</h1>
-          <p class="output">You have successfully entered the correct password.</p>
-          <p class="output">The site is now accessible.</p>
+          <img src="https://femboy.beauty/HDnGf.png" width="400" height="100" alt="PryzumLogo">
+          <h1>Welcome agent!</h1>
+          <p class="output">Admin tools:</p>
+          <p class="output">See <a href="https://internal.pryzum.net">Vetting Forum Responces</a></p>
+          <p class="output">See <a href="https://internal.pryzum.net">Internal Documents</a></p>
+          <br>
+          <p class="output">Usefull Links:</p>
+          <p class="output">Main Site: <a href="https://pryzum.net">pryzum.net</a></p>
+          <p class="output">Public files site: <a href="https://files.pryzum.net">files.pryzum.net</a></p>
+          <p class="output">Recruitment site: <a href="https://recruitment.pryzum.net">recruitment.pryzum.net</a></p>
         `;
         terminal.classList.remove('hidden'); // Fade in the new content
       }, 1000); // Wait for the fade-out to complete before updating content

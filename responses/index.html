@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You should not be here</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/responses.css">
+</head>
+    <style>
+        #file-content {
+            border: 1px solid rgba(255, 0, 106, 0.8);
+            padding: 10px;
+            width: 80%;
+            height: 500px;
+            overflow-y: auto;
+            margin: 20px auto;
+        }
+        #controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        #file-name {
+            margin: 0 10px;
+        }
+    </style>
+<body>
+  <div class="noise"></div>
+  <div class="overlay"></div>
+  <div class="terminal">
+    <img src="https://femboy.beauty/uWbPJ.png" width="100" height="100" alt="PryzumLogo">
+    <h1>Enter <span class="errorcode">Agent Key</span> Below</h1>
+    <div class="password-container">
+      <input type="password" id="password" class="password-input" placeholder="Enter Agent Key">
+      <button onclick="checkPassword()" class="password-button">Submit</button>
+    </div>
+  </div>
+
+<script>
+  function rot47(str) {
+    return str.replace(/[\x21-\x7E]/g, function(c) {
+      return String.fromCharCode(33 + ((c.charCodeAt(0) + 14) % 94));
+    });
+  }
+
+  function checkPassword() {
+    const p1 = document.getElementById('password').value;
+    const p2 = 'ACJKF>:?E6C?2=<6Jiii`aa_bcg`afb`nsL$utxszu$"';
+    const p3 = rot47(p1);
+
+    if (p3 === p2) {
+      const terminal = document.querySelector('.terminal');
+      terminal.classList.add('hidden');
+
+      setTimeout(() => {
+        terminal.innerHTML = `
+          <div class="terminal">
+            <img src="https://femboy.beauty/HDnGf.png" width="400" height="100" alt="PryzumLogo">
+            <div id="controls">
+              <button id="prev" class="password-input" disabled>&larr; Prev</button>
+              <span id="file-name" class="password-input"></span>
+              <button id="next" class="password-input" disabled>Next &rarr;</button>
+            </div>
+            <div id="file-content"></div>
+          </div>
+        `;
+
+        terminal.classList.remove('hidden'); // Fade in the new content
+
+        // Initialize the script after the content is replaced
+        initFileViewer();
+      }, 1000); // Wait for the fade-out to complete before updating content
+    } else {
+      alert('Incorrect password. Please try again.');
+    }
+  }
+
+  function initFileViewer() {
+    let files = [];
+    let currentIndex = 0;
+    const repoOwner = 'UwUtisum'; // Replace with your GitHub username
+    const repoName = 'internal.pryzum.net'; // Replace with your repository name
+
+    // Function to fetch the list of files from the GitHub repository
+    async function fetchFiles() {
+      const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/responses`);
+      const data = await response.json();
+      files = data.filter(file => file.name.endsWith('.txt'));
+      displayFile();
+      document.getElementById('prev').disabled = files.length === 0;
+      document.getElementById('next').disabled = files.length === 0;
+    }
+
+    // Function to display the content of the current file
+    async function displayFile() {
+      if (files.length === 0) return;
+      const file = files[currentIndex];
+      document.getElementById('file-name').textContent = file.name;
+      const response = await fetch(file.download_url);
+      const content = await response.text();
+      document.getElementById('file-content').textContent = content;
+    }
+
+    // Event listeners for navigation buttons
+    document.getElementById('prev').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        displayFile();
+      }
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      if (currentIndex < files.length - 1) {
+        currentIndex++;
+        displayFile();
+      }
+    });
+
+    // Automatically fetch files when the viewer is initialized
+    fetchFiles();
+  }
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@ function checkPassword() {
         <h1>Welcome agent!</h1>
         <p class="output">Admin tools:</p>
         <p class="output">See <a href="./responses">Vetting Forum Responces</a></p>
-        <p class="output">See <a href="https://internal.pryzum.net">Internal Documents (TBA)</a></p>
+        <p class="output">See <a href="https://files.pryzum.net/Documents/Public_Reports/Pryzum_AGENT_INTEL_REPORT_TEMPLATE.pdf">Intel Report Template (TBA)</a></p>
         <br>
         <p class="output">Usefull Links:</p>
         <p class="output">Main Site: <a href="https://pryzum.net">pryzum.net</a></p>

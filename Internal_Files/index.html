@@ -12,24 +12,29 @@
     <div class="terminal">
         <h2>Please enter the password to view the documents</h2>
         <form id="loginForm">
-            <input type="password" id="password" placeholder="Enter Password">
-            <button type="submit">Login</button>
+            <input type="password" id="password" class="password-input" placeholder="Enter Agent Key">
+            <button type="submit" class="password-button">Login</button>
         </form>
     </div>
     <script>
-        const correctPassword = "YourPasswordHere";
+        function rot47(str) {
+        return str.replace(/[\x21-\x7E]/g, function(c) {
+            return String.fromCharCode(33 + ((c.charCodeAt(0) + 14) % 94));
+        });
+        }
 
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const enteredPassword = document.getElementById('password').value;
-            
-            if (enteredPassword === correctPassword) {
+        function checkPassword() {
+        const p1 = document.getElementById('password').value;
+        const p2 = 'ACJKF>:?E6C?2=<6Jiii`aa_bcg`afb`nsL$utxszu$"';
+        const p3 = rot47(p1);
+
+        if (p3 === p2) {
                 document.cookie = "loggedIn=true; max-age=3600"; // Set cookie for 1 hour
                 window.location.href = "protected.html"; // Redirect to protected page
             } else {
                 alert("Incorrect password!");
             }
-        });
+        };
     </script>
 </body>
 </html>

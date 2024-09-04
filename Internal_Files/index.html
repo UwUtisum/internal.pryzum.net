@@ -29,7 +29,7 @@
             const p3 = rot47(p1);
 
             if (p3 === p2) {
-                document.cookie = "loggedIn=true; max-age=3600"; // Set cookie for 1 hour
+                document.cookie = "loggedIn=true; max-age=300"; // Set cookie for 5 min
                 window.location.href = "protected.html"; // Redirect to protected page
             } else {
                 alert("Incorrect password!");

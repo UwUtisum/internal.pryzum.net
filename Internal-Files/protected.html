@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected Documents</title>
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        window.onload = function() {
+            const loggedIn = getCookie('loggedIn');
+            if (!loggedIn) {
+                window.location.href = "index.html"; // Redirect to login page
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Protected Documents</h1>
+    <p>These PDFs are only visible to users who have logged in.</p>
+    <ul>
+        <li><a href="pdf_wrapper1.html" target="_blank">Document 1</a></li>
+        <li><a href="pdf_wrapper2.html" target="_blank">Document 2</a></li>
+        <!-- Add more PDF links as needed -->
+    </ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document 1</title>
+    <script>
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        window.onload = function() {
+            const loggedIn = getCookie('loggedIn');
+            if (!loggedIn) {
+                window.location.href = "index.html"; // Redirect to login page
+            } else {
+                document.getElementById('pdfFrame').style.display = 'block';
+            }
+        };
+    </script>
+</head>
+<body>
+    <iframe id="pdfFrame" src="./if-you-are-viewing-this-file-in-game-directly-from-the-link-please-ignore-this-file-exists-this-file-is-accessible-unintentionally-due-to-OOC-constraints-that-i-cant-control-with-GitHub-pages-I-do-not-want-this-file-accessible-please-ignore-this-file/Pryzum_AGENT_INTEL_REPORT_TEMPLATE.pdf" style="width:100%; height:100vh; display:none;" frameborder="0"></iframe>
+</body>
+</html>

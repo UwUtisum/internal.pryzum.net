@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/mainpage.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/mainpage.css">
 </head>
 <body>
-    <div class="noise"></div>
-    <div class="overlay"></div>
-    <div class="terminal">
-        <h2>Please enter the password to view the documents</h2>
-        <form id="loginForm" onsubmit="checkPassword(); return false;">
-            <input type="password" id="password" class="password-input" placeholder="Enter Agent Key">
-            <button type="submit" class="password-button">Login</button>
-        </form>
-    </div>
-    <script>
-        function rot47(str) {
-            return str.replace(/[\x21-\x7E]/g, function(c) {
-                return String.fromCharCode(33 + ((c.charCodeAt(0) + 14) % 94));
-            });
-        }
+  <div class="noise"></div>
+  <div class="overlay"></div>
+  <div class="terminal">
+    <h2>Please enter the password to view the documents</h2>
+    <form id="loginForm" onsubmit="checkPassword(); return false;">
+      <input type="password" id="password" class="password-input" placeholder="Enter Agent Key">
+      <button type="submit" class="password-button">Login</button>
+    </form>
+  </div>
+  <script>
+    function rot47(str) {
+      return str.replace(/[\x21-\x7E]/g, function(c) {
+        return String.fromCharCode(33 + ((c.charCodeAt(0) + 14) % 94));
+      });
+    }
 
-        function checkPassword() {
-            const p1 = document.getElementById('password').value;
-            const p2 = 'ACJKF>:?E6C?2=<6Jiii`aa_bcg`afb`nsL$utxszu$"';
-            const p3 = rot47(p1);
+    function checkPassword() {
+      const p1 = document.getElementById('password').value;
+      const p2 = 'ACJKF>:?E6C?2=<6Jiii`aa_bcg`afb`nsL$utxszu$"';
+      const p3 = rot47(p1);
 
-            if (p3 === p2) {
-                document.cookie = "loggedIn=true; max-age=300"; // Set cookie for 5 min
-                window.location.href = "protected.html"; // Redirect to protected page
-            } else {
-                alert("Incorrect password!");
-            }
-        }
-    </script>
+      if (p3 === p2) {
+        document.cookie = "loggedIn=true; max-age=300"; // Set cookie for 5 min
+        window.location.href = "protected.html"; // Redirect to protected page
+      } else {
+        alert("Incorrect password!");
+      }
+    }
+  </script>
 </body>
 </html>
+
 

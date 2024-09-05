@@ -82,6 +82,9 @@ body {
   transition: opacity 1s ease-in-out;
   overflow: hidden; /* Prevent scrollbars */
 }
+::selection{
+  background: rgba(255, 8, 181, 0.5);
+}
 .hidden {
   opacity: 0;
 }

@@ -14,6 +14,38 @@ function checkPassword() {
     terminal.classList.add('hidden');
 
     setTimeout(() => {
+      // Insert custom scrollbar styles into the document head
+      const style = document.createElement('style');
+      style.textContent = `
+        ::-webkit-scrollbar {
+          width: 12px;
+          height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: yellow;
+          border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #f39c12;
+        }
+
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
+
+        .scrollable-element {
+          scrollbar-width: thin;
+          scrollbar-color: yellow transparent;
+        }
+      `;
+      document.head.appendChild(style);
+
       terminal.innerHTML = `
         <div style="display: flex; height: 100vh; box-sizing: border-box; gap: 10px;">
           <!-- First div with adjusted width -->
@@ -38,12 +70,13 @@ function checkPassword() {
             </a>
           </div>
           <div style="height: 80%; width: 40%; display: flex; flex-direction: column; box-sizing: border-box;">
-            <div style="flex: 1; padding: 10px; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white; margin-bottom: 8px; height: calc(50vh - 20px); overflow-y: auto;">
+            <div class="scrollable-element" style="flex: 1; padding: 10px; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white; margin-bottom: 8px; height: calc(50vh - 20px); overflow-y: auto;">
               <h3>Announcements:</h3>
               <p>05/09/2024: Website Updates!!! I'm working hard on the site almost daily, major updates to the sites will be posted here. If you want something added, please send me an email <3</p>
               <p>05/09/2024: Added New Internal Files section!!! If you want files to be uploaded here, please email me and I will upload them ASAP :3</p>
+              <p>05/09/2024: Currently working on a new interactive map i will update soon when it is ready</p>
             </div>
-            <div style="flex: 1; display: flex; gap: 10px; height: calc(50vh - 20px); overflow-y: auto;">
+            <div class="scrollable-element" style="flex: 1; display: flex; gap: 10px; height: calc(50vh - 20px); overflow-y: auto;">
               <div style="flex: 1; padding: 10px; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white;">
                 <h3>Current Pryzum Deployments:</h3>
                 <p>Deployments list TBA</p>
@@ -63,6 +96,8 @@ function checkPassword() {
     alert('Incorrect password. Please try again.');
   }
 }
+
+
 
 
 

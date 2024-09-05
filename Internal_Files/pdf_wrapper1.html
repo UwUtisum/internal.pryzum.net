@@ -6,25 +6,35 @@
     <title>Document 1</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/mainpage.css">
     <script>
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
+        (function() {
+            var iframe = document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100vh";
+            iframe.style.display = "none";
+            iframe.frameBorder = "0";
+            iframe.src = atob('aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vZG9jdW1lbnQvZC8xdzFfN2Z2YXRNMDh2UkpweVF2Nlk4YWQ1VlJmbkJrOW9HQ1AtRG1zeGtmdy9wcmV2aWV3');
+            document.body.appendChild(iframe);
+            
+            window.onload = function() {
+                const loggedIn = getCookie('loggedIn');
+                if (!loggedIn) {
+                    window.location.href = "index.html"; // Redirect to login page
+                } else {
+                    iframe.style.display = 'block';
+                }
+            };
 
-        window.onload = function() {
-            const loggedIn = getCookie('loggedIn');
-            if (!loggedIn) {
-                window.location.href = "index.html"; // Redirect to login page
-            } else {
-                document.getElementById('pdfFrame').style.display = 'block';
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
             }
-        };
+        })();
     </script>
 </head>
 <body>
     <div class="noise"></div>
     <div class="overlay"></div>
-        <iframe id="pdfFrame" src="./this-file-is-unintentionally-available-due-to-OOC-constraints-with-GitHub-pages/Pryzum_AGENT_INTEL_REPORT_TEMPLATE.pdf" style="width:100%; height:100vh; display:none;" frameborder="0"></iframe>
 </body>
 </html>
+

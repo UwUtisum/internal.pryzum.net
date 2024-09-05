@@ -6,7 +6,7 @@
     <title>Document 1</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/mainpage.css">
     <script>
-        (function() {
+        document.addEventListener('DOMContentLoaded', function() {
             var iframe = document.createElement('iframe');
             iframe.style.width = "100%";
             iframe.style.height = "100vh";
@@ -29,7 +29,7 @@
                 const parts = value.split(`; ${name}=`);
                 if (parts.length === 2) return parts.pop().split(';').shift();
             }
-        })();
+        });
     </script>
 </head>
 <body>
@@ -37,4 +37,5 @@
     <div class="overlay"></div>
 </body>
 </html>
+
 

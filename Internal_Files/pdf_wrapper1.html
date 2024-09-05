@@ -5,12 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document 1</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../css/mainpage.css">
+    <style>
+        /* Additional CSS for the spinner */
+        .loading-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            font-size: 1.5rem;
+            text-align: center;
+            display: none; /* Hide by default */
+        }
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     <script>
-        (function(_0x5c5639,_0x48dd88){const _0x582421=_0x56e7,_0x37f3fb=_0x5c5639();while(!![]){try{const _0x304cb0=-parseInt(_0x582421(0x1af))/0x1*(-parseInt(_0x582421(0x1a5))/0x2)+-parseInt(_0x582421(0x1ab))/0x3+-parseInt(_0x582421(0x1b4))/0x4+parseInt(_0x582421(0x1b9))/0x5+parseInt(_0x582421(0x1a9))/0x6+-parseInt(_0x582421(0x1bc))/0x7*(-parseInt(_0x582421(0x1a8))/0x8)+parseInt(_0x582421(0x1a4))/0x9;if(_0x304cb0===_0x48dd88)break;else _0x37f3fb['push'](_0x37f3fb['shift']());}catch(_0x5d6918){_0x37f3fb['push'](_0x37f3fb['shift']());}}}(_0x152d,0xc1d23),document['addEventListener']('DOMContentLoaded',function(){const _0x2a07c6=_0x56e7;var _0x39ffc4=document[_0x2a07c6(0x1a3)](_0x2a07c6(0x1ac));_0x39ffc4['style'][_0x2a07c6(0x1ad)]=_0x2a07c6(0x1be),_0x39ffc4[_0x2a07c6(0x1b3)][_0x2a07c6(0x1ba)]=_0x2a07c6(0x1b6),_0x39ffc4[_0x2a07c6(0x1b3)]['display']=_0x2a07c6(0x1b1),_0x39ffc4[_0x2a07c6(0x1b5)]='0',_0x39ffc4['src']='https://docs.google.com/document/d/1w1_7fvatM08vRKpyQv6Y8ad5VRfnBk9oGCP-Dmsxkfw/edit',document['body'][_0x2a07c6(0x1b8)](_0x39ffc4),window[_0x2a07c6(0x1a7)]=function(){const _0x404f8d=_0x2a07c6,_0x4915f8=_0x50bff8(_0x404f8d(0x1ae));!_0x4915f8?window[_0x404f8d(0x1b7)][_0x404f8d(0x1bb)]=_0x404f8d(0x1b2):_0x39ffc4[_0x404f8d(0x1b3)][_0x404f8d(0x1b0)]=_0x404f8d(0x1bd);};function _0x50bff8(_0x12ceb6){const _0x404a2e=_0x2a07c6,_0x125925=';\x20'+document[_0x404a2e(0x1bf)],_0x240779=_0x125925[_0x404a2e(0x1a6)](';\x20'+_0x12ceb6+'=');if(_0x240779[_0x404a2e(0x1aa)]===0x2)return _0x240779['pop']()[_0x404a2e(0x1a6)](';')['shift']();}}));function _0x56e7(_0x3da1db,_0xe33c4d){const _0x152d03=_0x152d();return _0x56e7=function(_0x56e76e,_0x2665e9){_0x56e76e=_0x56e76e-0x1a3;let _0x14f0ec=_0x152d03[_0x56e76e];return _0x14f0ec;},_0x56e7(_0x3da1db,_0xe33c4d);}function _0x152d(){const _0x1fe558=['2462280kVHeiY','frameBorder','100vh','location','appendChild','1546465klPkVq','height','href','240023TysoBF','block','100%','cookie','createElement','16144524dkVRGq','4hYvlwZ','split','onload','88fOZoMx','1295406QOraNL','length','3874422hAbjyl','iframe','width','loggedIn','2363gheVzn','display','none','index.html','style'];_0x152d=function(){return _0x1fe558;};return _0x152d();}
+        (function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                var iframe = document.createElement('iframe');
+                iframe.style.width = "100%";
+                iframe.style.height = "100vh";
+                iframe.style.display = "none";
+                iframe.frameBorder = "0";
+                iframe.src = "https://docs.google.com/document/d/1w1_7fvatM08vRKpyQv6Y8ad5VRfnBk9oGCP-Dmsxkfw/edit";
+                document.body.appendChild(iframe);
+                
+                var loadingSection = document.createElement('div');
+                loadingSection.className = 'loading-section';
+                loadingSection.innerHTML = '<div class="spinner"></div> The page is loading...';
+                document.body.insertBefore(loadingSection, document.querySelector('.overlay'));
+
+                window.onload = function() {
+                    const loggedIn = getCookie('loggedIn');
+                    if (!loggedIn) {
+                        window.location.href = "index.html"; // Redirect to login page
+                    } else {
+                        iframe.style.display = 'block';
+                        loadingSection.style.display = 'none'; // Hide the loading section when content is loaded
+                    }
+                };
+
+                function getCookie(name) {
+                    const value = `; ${document.cookie}`;
+                    const parts = value.split(`; ${name}=`);
+                    if (parts.length === 2) return parts.pop().split(';').shift();
+                }
+            });
+        })();
     </script>
 </head>
 <body>
     <div class="noise"></div>
+    <div class="loading-section">
+        <div class="spinner"></div> The page is loading...
+    </div>
     <div class="overlay"></div>
 </body>
 </html>
+

@@ -96,12 +96,14 @@ a {
   color: #fff;
   text-decoration: none;
 }
+/*
 a::before {
   content: "[";
 }
 a::after {
   content: "]";
 }
+*/
 .errorcode {
   color: white;
 }

@@ -158,6 +158,96 @@ function checkPassword() {
             'https://femboy.beauty/ToQys.png',
             'https://femboy.beauty/T59lJ.png',
             'https://femboy.beauty/KfR-y.png',
+            'https://femboy.beauty/-7XwY.png',
+            'https://femboy.beauty/Q54ki.png',
+            'https://femboy.beauty/CsG5N.png',
+            'https://femboy.beauty/zbVmJ.png',
+            'https://femboy.beauty/y6lZs.png',
+            'https://femboy.beauty/bx7gj.png',
+            'https://femboy.beauty/ZY1Te.png',
+            'https://femboy.beauty/Q8xmz.png',
+            'https://femboy.beauty/JWJ7g.png',
+            'https://femboy.beauty/9pGJs.png',
+            'https://femboy.beauty/_eDDB.png',
+            'https://femboy.beauty/g7zzI.png',
+            'https://femboy.beauty/GZ7qL.png',
+            'https://femboy.beauty/NSffk.png',
+            'https://femboy.beauty/HphS3.png',
+            'https://femboy.beauty/kFfQy.png',
+            'https://femboy.beauty/ddDaB.png',
+            'https://femboy.beauty/v5TW8.png',
+            'https://femboy.beauty/t4YvQ.png',
+            'https://femboy.beauty/Hr0Ga.png',
+            'https://femboy.beauty/3e3JA.png',
+            'https://femboy.beauty/SpntO.png',
+            'https://femboy.beauty/j4Fjm.png',
+            'https://femboy.beauty/h7X9c.png',
+            'https://femboy.beauty/cbdeu.png',
+            'https://femboy.beauty/JgunQ.png',
+            'https://femboy.beauty/1gvyu.png',
+            'https://femboy.beauty/ToQys.png',
+            'https://femboy.beauty/T59lJ.png',
+            'https://femboy.beauty/KfR-y.png',
+            'https://femboy.beauty/-7XwY.png',
+            'https://femboy.beauty/Q54ki.png',
+            'https://femboy.beauty/CsG5N.png',
+            'https://femboy.beauty/zbVmJ.png',
+            'https://femboy.beauty/y6lZs.png',
+            'https://femboy.beauty/bx7gj.png',
+            'https://femboy.beauty/ZY1Te.png',
+            'https://femboy.beauty/Q8xmz.png',
+            'https://femboy.beauty/JWJ7g.png',
+            'https://femboy.beauty/9pGJs.png',
+            'https://femboy.beauty/_eDDB.png',
+            'https://femboy.beauty/g7zzI.png',
+            'https://femboy.beauty/GZ7qL.png',
+            'https://femboy.beauty/NSffk.png',
+            'https://femboy.beauty/HphS3.png',
+            'https://femboy.beauty/kFfQy.png',
+            'https://femboy.beauty/ddDaB.png',
+            'https://femboy.beauty/v5TW8.png',
+            'https://femboy.beauty/t4YvQ.png',
+            'https://femboy.beauty/Hr0Ga.png',
+            'https://femboy.beauty/3e3JA.png',
+            'https://femboy.beauty/SpntO.png',
+            'https://femboy.beauty/j4Fjm.png',
+            'https://femboy.beauty/h7X9c.png',
+            'https://femboy.beauty/cbdeu.png',
+            'https://femboy.beauty/JgunQ.png',
+            'https://femboy.beauty/1gvyu.png',
+            'https://femboy.beauty/ToQys.png',
+            'https://femboy.beauty/T59lJ.png',
+            'https://femboy.beauty/KfR-y.png',
+            'https://femboy.beauty/-7XwY.png',
+            'https://femboy.beauty/Q54ki.png',
+            'https://femboy.beauty/CsG5N.png',
+            'https://femboy.beauty/zbVmJ.png',
+            'https://femboy.beauty/y6lZs.png',
+            'https://femboy.beauty/bx7gj.png',
+            'https://femboy.beauty/ZY1Te.png',
+            'https://femboy.beauty/Q8xmz.png',
+            'https://femboy.beauty/JWJ7g.png',
+            'https://femboy.beauty/9pGJs.png',
+            'https://femboy.beauty/_eDDB.png',
+            'https://femboy.beauty/g7zzI.png',
+            'https://femboy.beauty/GZ7qL.png',
+            'https://femboy.beauty/NSffk.png',
+            'https://femboy.beauty/HphS3.png',
+            'https://femboy.beauty/kFfQy.png',
+            'https://femboy.beauty/ddDaB.png',
+            'https://femboy.beauty/v5TW8.png',
+            'https://femboy.beauty/t4YvQ.png',
+            'https://femboy.beauty/Hr0Ga.png',
+            'https://femboy.beauty/3e3JA.png',
+            'https://femboy.beauty/SpntO.png',
+            'https://femboy.beauty/j4Fjm.png',
+            'https://femboy.beauty/h7X9c.png',
+            'https://femboy.beauty/cbdeu.png',
+            'https://femboy.beauty/JgunQ.png',
+            'https://femboy.beauty/1gvyu.png',
+            'https://femboy.beauty/ToQys.png',
+            'https://femboy.beauty/T59lJ.png',
+            'https://femboy.beauty/KfR-y.png',
             'https://femboy.beauty/-7XwY.png'
         ];
 
@@ -165,7 +255,7 @@ function checkPassword() {
         const shuffledUrls = imageUrls.sort(() => 0.5 - Math.random());
 
         const totalArea = window.innerWidth * window.innerHeight;
-        const imageCount = 30;
+        const imageCount = 120;
 
         // Create container for images
         const container = document.createElement('div');
@@ -190,7 +280,7 @@ function checkPassword() {
                 const aspectRatio = originalWidth / originalHeight;
 
                 // Scale images between 1.5 and 2.5 times their original size
-                const scaleFactor = Math.random() * (1.1 - 1.7) + 1.2;
+                const scaleFactor = Math.random() * (1.1 - 1.7) + 1.3;
                 const scaledWidth = originalWidth * scaleFactor;
                 const scaledHeight = originalHeight * scaleFactor;
 
@@ -210,7 +300,7 @@ function checkPassword() {
         images.forEach((img, index) => {
             setTimeout(() => {
                 img.classList.add('show');
-            }, index * 100); // 100ms delay between each image showing
+            }, index * 75); // 100ms delay between each image showing
         });
 
         // Wait until all images are visible, then start hiding in reverse order
@@ -218,11 +308,9 @@ function checkPassword() {
             images.forEach((img, index) => {
                 setTimeout(() => {
                     img.classList.add('hide');
-                }, (images.length - index - 1) * 100); // Reverse order hiding
+                }, (images.length - index - 1) * 75); // Reverse order hiding
             });
-        }, 4000); // Wait 3 seconds after all images have appeared
-
-
+        }, 2000); // Wait 3 seconds after all images have appeared
 
         terminal.classList.add('hidden');
 
@@ -249,7 +337,13 @@ function checkPassword() {
                                 <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);">Open Internal Computer</span>
                             </a>
                         </div>
-                        <div style="height: 60%; width: 100%; display: flex; flex-direction: column; justify-content: center; padding: 10px; box-sizing: border-box; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white;">
+                        <div style="height: 30%; width: 100%; display: flex; flex-direction: column; justify-content: center; padding: 10px; box-sizing: border-box; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white;">
+                            <a href="https://wiki.pryzum.net/" style="display: block; width: 100%; height: 100%; position: relative; text-decoration: none;">
+                                <img src="https://femboy.beauty/xcbxZ.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Interactive Map">
+                                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);">Open Pryzum Intelapedia</span>
+                            </a>
+                        </div>
+                        <div style="height: 30%; width: 100%; display: flex; flex-direction: column; justify-content: center; padding: 10px; box-sizing: border-box; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white;">
                             <a href="https://interactive-map-link.com" style="display: block; width: 100%; height: 100%; position: relative; text-decoration: none;">
                                 <img src="https://femboy.beauty/1OlmF.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Interactive Map">
                                 <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);">Open Interactive Map</span>

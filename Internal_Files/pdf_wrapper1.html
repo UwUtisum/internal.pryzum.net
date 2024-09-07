@@ -19,7 +19,6 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 10;
             font-size: 1.5rem;
             text-align: center;
             display: flex; /* Hide by default */
@@ -42,6 +41,7 @@
         (function() {
             document.addEventListener('DOMContentLoaded', function() {
                 var iframe = document.createElement('iframe');
+                iframe.style.zIndex = "100";
                 iframe.style.width = "100%";
                 iframe.style.height = "100vh";
                 iframe.style.display = "none";
@@ -60,7 +60,7 @@
                         window.location.href = "index.html"; // Redirect to login page
                     } else {
                         iframe.style.display = 'block';
-                        loadingSection.style.display = 'none'; // Hide the loading section when content is loaded
+                        loadingSection.style.display = 'hidden'; // Hide the loading section when content is loaded
                     }
                 };
 

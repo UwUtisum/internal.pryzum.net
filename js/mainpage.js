@@ -346,7 +346,7 @@ function checkPassword() {
                         <div style="height: 30%; width: 100%; display: flex; flex-direction: column; justify-content: center; padding: 10px; box-sizing: border-box; border: 2px solid yellow; background: rgba(255, 255, 255, 0.1); font-size: 0.9em; color: white;">
                             <a href="https://interactive-map-link.com" style="display: block; width: 100%; height: 100%; position: relative; text-decoration: none;">
                                 <img src="https://femboy.beauty/1OlmF.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Interactive Map">
-                                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);">Open Interactive Map</span>
+                                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);">Open Interactive Map [WIP]</span>
                             </a>
                         </div>
                     </div>
